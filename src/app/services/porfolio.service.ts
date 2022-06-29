@@ -12,13 +12,13 @@ export class PorfolioService {
 
   constructor(private http:HttpClient) { }
 
-  /* MySQL
+  /* MySQL */
   public getData(): Observable<person>{
     
     return this.http.get<person>(this.URL+'get/profile');
-  }*/
+  }
 
-  public getData(): Observable<any>{
+  public getDataJson(): Observable<any>{
     return this.http.get(this.URLJSON)
   }
 

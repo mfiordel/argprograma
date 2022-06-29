@@ -8,8 +8,9 @@ import { person } from '../model/person.model'
   styleUrls: ['./aboutme.component.css']
 })
 export class AboutmeComponent implements OnInit {
-  /*person: person = new person("","","","");*/
- person:any
+person: person = new person("","","","");
+personjson:any
+
 
   constructor(private data:PorfolioService) { }
 
@@ -17,6 +18,12 @@ export class AboutmeComponent implements OnInit {
     this.data.getData().subscribe(data => {
       console.log(data);
       this.person = data;
+    })
+
+    /*json*/
+    this.data.getDataJson().subscribe(data => {
+      console.log(data);
+      this.personjson = data;
     })
   }
 
