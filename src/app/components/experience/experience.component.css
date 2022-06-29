@@ -1,0 +1,44 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+.img-logos{
+    max-width: 100px !important;
+    width: auto;
+}
+.logos {
+    height: 50px;
+}
+.card-img {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.card-body {
+    margin-top: 3.5em;
+
+}
+.buttons {
+        border: solid 1px rgb(38, 43, 114);
+        margin-right: 5px;
+        border-radius: 20px;
+        width: 200px!important;
+        border: solid 1px rgb(49, 49, 53);
+        color: white;
+        filter: drop-shadow(1px 1px 5px #333333);
+        font-variant: bold;
+}
+
+.icn-buttons {
+    border: solid 1px rgb(38, 43, 114);
+    margin: 5px;
+    border-radius: 20px;
+    width: 50px!important;
+    border: solid 1px rgb(49, 49, 53);
+    color: white;
+    filter: drop-shadow(1px 1px 5px #333333);
+    font-variant: bold;
+}
+#btn-experience-modal {
+    position: relative;
+
+}

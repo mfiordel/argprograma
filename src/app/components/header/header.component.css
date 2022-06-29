@@ -1,0 +1,49 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+#logo {
+    width: 5em;
+}
+#navbar{
+    filter: drop-shadow(5px 5px 14px #333335);
+}
+#navbar img{
+    margin-left: 2em;
+    position: absolute;
+}
+#main {
+    background-image: url(../../../assets/11_A-landing.jpg);
+    background-size: 100%;
+    background-position:top;
+    background-repeat:repeat-y;
+    
+}
+#profile-card{
+    filter: drop-shadow(5px 5px 14px #333335);
+    border: none;
+    
+}
+
+#profile-banner {
+    filter: drop-shadow(5px 5px 14px #333335);
+}
+
+#profile-banner:hover {
+    transform: scale(1.02);
+    transition: cubic-bezier();
+    transition-duration: 3s;
+}
+#profile-banner:not(:hover) {
+    transform: scale(1);
+    transition: cubic-bezier();
+    transition-duration: 2s;
+}
+
+#profile-banner-img {
+    position: sticky;
+    flex-wrap: nowrap;
+    width: 100%;
+   
+    
+}

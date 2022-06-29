@@ -1,0 +1,28 @@
+<div class="card-body container">  
+    <div class="pt-2 row">
+      <div class="col-12">
+        <h4 class="card-title inline border-top border-4 border-dark pt-2 mt-4 col-12 col-sm-12 col-md-12 col-lg-12">Universidades - Instituciones 
+          <button class="btn-dark icn-buttons" id="btn-experience-modal" (click)="show=!show"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layer-backward" viewBox="0 0 16 16">
+              <path d="M8.354 15.854a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708l1-1a.5.5 0 0 1 .708 0l.646.647V4H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9v7.793l.646-.647a.5.5 0 0 1 .708 0l1 1a.5.5 0 0 1 0 .708l-3 3z"/>
+              <path d="M1 9a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4.5a.5.5 0 0 1 0 1H1v2h4.5a.5.5 0 0 1 0 1H1zm9.5 0a.5.5 0 0 1 0-1H15V6h-4.5a.5.5 0 0 1 0-1H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4.5z"/>
+            </svg>
+          </button>
+        </h4> 
+        
+      </div>
+      <!--USAR EL ngIF para futuro logeo-->
+      <div id="experience-modal" class="col-12" *ngIf="show" [@inOutAnimation]>
+        <div class="card position-relative mt-2 mb-2" *ngFor="let education of educationList">
+          <div class="w-50 logos border-top border-4 border-dark"><img [src]="education.img.url" [class]="education.img.class" class="card-img-top d-block card-img img-logos" alt="..."></div>
+          <div class="card-body border-top border-4 border-dark">
+            <h5 class="card-title mt-2">{{ education.school }}</h5>
+            <h6 class="card-title mt-2">{{ education.title }}</h6>
+            <p class="blockquote-footer mt-2">Desde: {{ education.start }}</p>
+            <p class="blockquote-footer mt-2">Hasta: {{ education.end }}</p>
+            <button class="btn-dark w-25 buttons col-12">Cursos</button>
+            <button class="btn-dark w-25 buttons col-12">Títulos</button>
+          </div>
+        </div>
+    </div>
+  </div>

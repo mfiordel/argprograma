@@ -1,0 +1,46 @@
+{
+    "name": "Micael Fiordelmondo _",
+    "bannerImage": "",
+    "profileImage": "../../../assets/DSC_1648.jpg",
+    "position" : "FreeLance",
+    "ubication" : "Mendoza, Argentina",
+    "about" : "Licenciado en Actuación, Diseñador Gráfico y Desarrollador Front End",
+    "education" : [{
+        "school":"Universidad Nacional de las Artes",
+        "title":"Licenciado en Actuación",
+        "start":"2014",
+        "end":"2021",
+        "img":{
+            "url":"../../../assets/logoquienessomos2.png",
+            "class":"bg-light"
+        }
+    },{
+        "school":"Coderhouse",
+        "title":"Desarrollador Front End React",
+        "start":"2021",
+        "end":"2021",
+        "img":{
+            "url":"../../../assets/logocoderhouse.jpg",
+            "class":"bg-dark"
+        }
+    },{
+        "school":"Argentina Programa",
+        "title":"#SéProgramar, Fundamentos de la programación",
+        "start":"2021",
+        "end":"2021",
+        "img":{
+            "url":"../../../assets/APLogo-20-20.png",
+            "class":"bg-dark"
+        }
+    },
+    {
+        "school":"Argentina Programa",
+        "title":"#YoProgramo, FullStack Angular & Java",
+        "start":"2022",
+        "end":"En curso",
+        "img": {
+            "url":"../../../assets/APLogo-20-20.png",
+            "class":"bg-dark"
+        }
+    }]
+}
