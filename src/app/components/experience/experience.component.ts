@@ -32,6 +32,7 @@ import { PorfolioService } from 'src/app/services/porfolio.service';
   ]
 })
 export class ExperienceComponent /* implements OnInit */{
+  /*
   educationList:any
   constructor(private myData:PorfolioService) { }
 
@@ -39,7 +40,7 @@ export class ExperienceComponent /* implements OnInit */{
     this.myData.getData().subscribe(data=>{
       this.educationList=data.education
     })
-  }
+  }*/
 
   show:boolean = true;
 }

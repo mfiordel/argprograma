@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-12 ">
         <div class="col-4">
-          <img class="card-img-top rounded-circle " id="profile-img"  alt="Card image cap" [src]=person.profileImage>
+          <img class="card-img-top rounded-circle " id="profile-img"  alt="Card image cap">
         </div>
         <div class="col-8 col-sm-12 col-md-12 flex-shrink-1">
           <div class="w-50 position-absolute end-0 top-0 badge">
@@ -12,21 +12,21 @@
           </div>
       </div>  
       <div class="col-10 pt-2">
-        <h1 class="card-title inline border-top border-4 border-dark col-12 pt-2">{{ person.name }} <!--{{ person.lastname }}--></h1>
+        <h1 class="card-title inline border-top border-4 border-dark col-12 pt-2">{{ person.name }} {{ person.lastname }}</h1>
           <ul class="container-fluid border-top border-4 border-dark col-12 pt-2">
-            <!-- 
+             
             <li>
              <p class="card-text col-12"> {{ person.address }} </p> 
             </li>
             <li>
               <p class="card-text">{{ person.phone }}</p>
             </li>
-            
+            <!-- JSON 
             <li>
               <p class="card-text">{{ person.birthday }}</p>
               
             </li>
-            -->
+            
             <li>
               <p class="card-text col-12"> {{ person.ubication}} </p> 
              </li>
@@ -38,6 +38,7 @@
                <p class="card-text">{{ person.about }}</p>
                
              </li>
+             -->
           </ul>
       </div>
       <div class="col-12 pt-2">
