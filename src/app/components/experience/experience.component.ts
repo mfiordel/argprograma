@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { PorfolioService } from 'src/app/services/porfolio.service';
+import { experience } from '../../model/experience.model'
+import { ArrayType } from '@angular/compiler';
 
 @Component({
   selector: 'app-experience',
@@ -31,8 +33,24 @@ import { PorfolioService } from 'src/app/services/porfolio.service';
     )
   ]
 })
-export class ExperienceComponent /* implements OnInit */{
-  /*
+export class ExperienceComponent implements OnInit{
+  experience: any;
+  date: any;
+ /*person:any*/
+
+  constructor(private data:PorfolioService) { }
+
+  ngOnInit(): void {
+    this.data.getExperience().subscribe(data => {
+      console.log(data);
+        this.experience = data; 
+        /* Averiguar Parse Date
+        this.experience.initial_date = new Date(this.experience.initial_date)
+        */ 
+    })
+  }
+
+  /* Subscripción JSON
   educationList:any
   constructor(private myData:PorfolioService) { }
 
