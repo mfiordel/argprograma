@@ -15,12 +15,10 @@ export class AuthService {
   constructor(private httpClient :HttpClient) { }
 
   public newUser(newUser: NewUser): Observable<any>{
-    console.log(newUser)
     return this.httpClient.post<any>(this.authURL + 'nuevo', newUser/*, {responseType: "json"}*/);
   }
 
   public login(loginUser: LoginUser): Observable<any>{
-    console.log(loginUser)
     return this.httpClient.post<JwtDto>(this.authURL + 'login',loginUser/*, {responseType: "json"}*/);
   }
 }

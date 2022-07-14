@@ -9,12 +9,12 @@
               <h3 class="mb-5">Admin Login</h3>
               <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                 <div class="form-outline mb-4">
-                  <input type="nameUser" id="nameUser" class="form-control form-control-lg" name="nameUser" [ngModel]="nameUser" required/>
+                  <input type="nameUser" id="nameUser" class="form-control form-control-lg" name="nameUser" [(ngModel)]="nameUser" required/>
                   <label class="form-label" for="nameUser">Nombre de usuario</label>
                 </div>
               
                 <div class="form-outline mb-4">
-                  <input type="password" id="password" name="password" class="form-control form-control-lg" [ngModel]="password" required/>
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" [(ngModel)]="password" required/>
                   <label class="form-label" for="password">Password</label>
                 </div>
                 <button class="btn btn-secondary btn-lg btn-block" type="submit">Login</button>
