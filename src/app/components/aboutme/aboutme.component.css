@@ -20,24 +20,13 @@
     transition-duration: 2s;
 }
 
-#img-logo-banner-coder{
-    width: 10em;
-    position: relative;
-}
-#img-logo-banner-una{
-    width: 10em;
-    position: relative;
-}
-#img-logo-banner-argp{
-    width: 10em;
-    position: relative;
-}
 
 .buttons{
     border: solid 1px rgb(38, 43, 114);
     margin: 5px;
     border-radius: 20px;
-    width: 200px!important;
+    min-width: 200px!important;
+    max-width: 90vw!important;
     border: solid 1px rgb(49, 49, 53);
     color: white;
     filter: drop-shadow(1px 1px 5px #333333);
@@ -52,20 +41,8 @@
         filter: drop-shadow(5px 5px 14px #333335);
         transition: 2s;
     }
-    #img-logo-banner-coder{
-        margin-right: 1em;
-        width: 5em;
-        position: relative;
-    }
-    #img-logo-banner-una{
-        margin-right: 1em;
-        width: 5em;
-        position: relative;
-    }
-    #img-logo-banner-argp{
-        float: right;
-        margin-right: 1em;
-        width: 5em;
-        position: relative;
+
+    #app-logo-card{
+        display: none;
     }
 }

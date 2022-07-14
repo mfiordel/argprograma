@@ -12,18 +12,6 @@
     margin-left: 2em;
     position: absolute;
 }
-#main {
-    background-image: url(../../../assets/11_A-landing.jpg);
-    background-size: 100%;
-    background-position:top;
-    background-repeat:repeat-y;
-    
-}
-#profile-card{
-    filter: drop-shadow(5px 5px 14px #333335);
-    border: none;
-    
-}
 
 #profile-banner {
     filter: drop-shadow(5px 5px 14px #333335);
@@ -43,7 +31,15 @@
 #profile-banner-img {
     position: sticky;
     flex-wrap: nowrap;
-    width: 100%;
-   
-    
+    width: 100%;    
+}
+
+@media (max-width: 480px) {
+    #profile-banner {
+        position: relative;
+        width: 80vw;
+        height: auto;
+        filter: drop-shadow(5px 5px 14px #333335);
+        transition: 2s;
+    }
 }

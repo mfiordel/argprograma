@@ -3,6 +3,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { PorfolioService } from 'src/app/services/porfolio.service';
 import { experience } from '../../model/experience.model'
 import { ArrayType } from '@angular/compiler';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-experience',
@@ -43,7 +44,8 @@ export class ExperienceComponent implements OnInit{
   ngOnInit(): void {
     this.data.getExperience().subscribe(data => {
       console.log(data);
-        this.experience = data; 
+      this.experience = data; 
+        
         /* Averiguar Parse Date
         this.experience.initial_date = new Date(this.experience.initial_date)
         */ 
@@ -60,5 +62,6 @@ export class ExperienceComponent implements OnInit{
     })
   }*/
 
-  show:boolean = true;
+  show:boolean = false;
+  currently:boolean = true;
 }

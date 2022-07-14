@@ -8,7 +8,7 @@ import { person } from '../../model/person.model'
   styleUrls: ['./aboutme.component.css']
 })
 export class AboutmeComponent implements OnInit {
-person: person = new person("","","","","");
+person: person = new person("","","","","","");
  /*person:any*/
 
   constructor(private data:PorfolioService) { }

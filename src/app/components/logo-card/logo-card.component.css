@@ -1,0 +1,28 @@
+
+
+#img-logo-banner-coder{
+    width: 10em;
+    position: relative;
+}
+#img-logo-banner-una{
+    width: 10em;
+    position: relative;
+}
+#img-logo-banner-argp{
+    width: 10em;
+    position: relative;
+}
+@media (max-width: 480px) {
+    #img-logo-banner-coder{
+        width: 5em;
+        position: relative;
+    }
+    #img-logo-banner-una{
+        width: 5em;
+        position: relative;
+    }
+    #img-logo-banner-argp{
+        width: 5em;
+        position: relative;
+    }
+}

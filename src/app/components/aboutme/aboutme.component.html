@@ -5,21 +5,21 @@
           <img class="card-img-top rounded-circle" id="profile-img" [src]="person.url_img" alt="Card image cap">
         </div>
         <div class="col-8 col-sm-12 col-md-12 flex-shrink-1">
-          <div class="w-50 position-absolute end-0 top-0 badge">
-            <div class="mt-4 "><img src="../../../assets/logocoderhouse.jpg" class="bg-dark card-img position-relative" id="img-logo-banner-coder" alt="..."></div>
-            <div class="mt-4"><img src="../../../assets/logoquienessomos2.png" class="card-img position-relative" id="img-logo-banner-una" alt="..."></div>
-            <div class="mt-4"><img src="../../../assets/aplogo.png" class=" bg-dark card-img position-relative" id="img-logo-banner-argp" alt="..."></div>
-          </div>
+          <app-logo-card id="app-logo-card"></app-logo-card>
+        </div>
       </div>  
       <div class="col-10 pt-2">
         <h1 class="card-title inline border-top border-4 border-dark col-12 pt-2">{{ person.name }} {{ person.lastname }}</h1>
           <ul class="container-fluid border-top border-4 border-dark col-12 pt-2">
-             
+            <li>
+              <p class="card-text">{{ person.about_me }}</p>
+              
+            </li>
             <li>
              <p class="card-text col-12"> {{ person.address }} </p> 
             </li>
             <li>
-              <p class="card-text">{{ person.phone }}</p>
+              <p class="card-text">Número de contacto: {{ person.phone }}</p>
             </li>
             <!-- JSON 
             <li>
@@ -33,11 +33,7 @@
              <li>
                <p class="card-text">{{ person.position }}</p>
              </li>
-             
-             <li>
-               <p class="card-text">{{ person.about }}</p>
-               
-             </li>
+            
              -->
           </ul>
       </div>

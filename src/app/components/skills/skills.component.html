@@ -1,7 +1,7 @@
 <div class="card-body container">  
     <div class="pt-2 row">
       <div class="col-12">
-        <h4 class="card-title inline border-top border-4 border-dark pt-2 mt-4 col-12 col-sm-12 col-md-12 col-lg-12">Universidades - Instituciones 
+        <h4 class="card-title inline border-top border-4 border-dark pt-2 mt-4 col-12 col-sm-12 col-md-12 col-lg-12">Skills
           <button class="btn-dark icn-buttons" id="btn-experience-modal" (click)="show=!show"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layer-backward" viewBox="0 0 16 16">
               <path d="M8.354 15.854a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708l1-1a.5.5 0 0 1 .708 0l.646.647V4H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9v7.793l.646-.647a.5.5 0 0 1 .708 0l1 1a.5.5 0 0 1 0 .708l-3 3z"/>
@@ -9,18 +9,19 @@
             </svg>
           </button>
         </h4> 
+        
       </div>
       <!--USAR EL ngIF para futuro logeo-->
-      <div class="col-12 " *ngIf="show" [@inOutAnimation]>
-        <div class="card d-flex flex-wrap mt-2 mb-2 experience" *ngFor="let exp of experience" >
-          <img [src]="exp.url_img" [class]="exp.style" class="card-img-top d-block card-img img-logos" alt="...">
+      <div class="col-12" *ngIf="show" [@inOutAnimation]>
+        <div class="card position-relative mt-2 mb-2" >
+          <img class="card-img-top d-block card-img img-logos" alt="...">
           <div class="card-body border-top border-4 border-dark">
-            <h5 class="card-title mt-2">{{ exp.name_school}}</h5>
-            <h6 class="card-title mt-2">{{ exp.description }}</h6>
-            <p class="blockquote-footer mt-2">Desde: {{exp.initial_date}} </p>
-            <p class="blockquote-footer mt-2" *ngIf="exp.end_date != null; else currently">Hasta: {{exp.end_date}} </p>
-            <ng-template #currently><p class="blockquote-footer mt-2">Actualmente</p></ng-template>
-
+            <h5 class="card-title mt-2">Skill Name</h5>
+            <h6 class="card-title mt-2">Number of Proyects</h6>
+            <p class="blockquote-footer mt-2">Desde: </p>
+            <p class="blockquote-footer mt-2">Hasta: </p>
+            <ng-template #currently><p class="blockquote-footer mt-2"></p></ng-template>
+            <p class="blockquote-footer mt-2"> </p>
             <button class="btn-dark w-25 mt-2 buttons col-12">Cursos</button>
             <button class="btn-dark w-25 mt-2 buttons col-12">Títulos</button>
           </div>
