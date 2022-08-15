@@ -17,10 +17,7 @@ import { interceptorProvider } from './services/interceptor-service';
 import { CreateExpComponent } from './components/create-exp/create-exp.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FooterComponent } from './components/footer/footer.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpinnerModule } from './components/spinner/spinner.module';
-import { SpinnerInterceptor } from './services/spinner.interceptor';
-import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +42,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     SpinnerModule,
     NgCircleProgressModule.forRoot({})
   ],
-  providers: [interceptorProvider, {provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true}],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

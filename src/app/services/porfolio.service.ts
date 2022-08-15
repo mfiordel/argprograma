@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Experience } from '../model/experience.model';
 import { person } from '../model/person.model';
+import { SpinnerService } from './spinner.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,6 @@ export class PorfolioService {
     return this.http.get<Experience>(this.URL2 + 'get')
   }
   public createExperience(experience: Experience): Observable<any> {
-    window.location.reload();
     return this.http.post<any>(this.URL2 + 'create', experience)
   }
   public deleteExperience(idExp: number): Observable<any> {

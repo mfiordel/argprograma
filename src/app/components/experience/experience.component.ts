@@ -69,7 +69,10 @@ export class ExperienceComponent implements OnInit {
       this.data.deleteExperience(this.idExp).subscribe();
     }
     finally {
-      window.location.reload();
+      setTimeout(function(){
+        window.location.reload();
+      },3000);
+     
       this.idExp = null;
     }
   }
@@ -80,7 +83,9 @@ export class ExperienceComponent implements OnInit {
       this.data.editExperience(this.idExpObj, this.name_school).subscribe();
     }
     finally {
-      window.location.reload();
+      setTimeout(function(){
+        window.location.reload();
+      },3000);
     }
   }
 
@@ -89,7 +94,9 @@ export class ExperienceComponent implements OnInit {
       this.data.editDescriptionExperience(this.idExpObj, this.description).subscribe();
     }
     finally {
-      window.location.reload();
+      setTimeout(function(){
+        window.location.reload();
+      },3000);
     }
   }
   editInitDateExp(): void {
@@ -97,7 +104,9 @@ export class ExperienceComponent implements OnInit {
       this.data.editInitialDateExperience(this.idExpObj, this.initial_date).subscribe();
     }
     finally {
-      window.location.reload();
+      setTimeout(function(){
+        window.location.reload();
+      },3000);
     }
   }
   editEndDateExp(): void {
@@ -105,7 +114,9 @@ export class ExperienceComponent implements OnInit {
       this.data.editEndDateExperience(this.idExpObj, this.end_date).subscribe();
     }
     finally {
-      window.location.reload();
+      setTimeout(function(){
+        window.location.reload();
+      },3000);
     }
   }
   editUrlImgExp(): void {
@@ -113,7 +124,9 @@ export class ExperienceComponent implements OnInit {
       this.data.editUrlImgExperience(this.idExpObj, this.url_img, this.style).subscribe();
     }
     finally {
-      window.location.reload();
+      setTimeout(function(){
+        window.location.reload();
+      },3000);
     }
   }
   

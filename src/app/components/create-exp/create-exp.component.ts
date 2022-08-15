@@ -35,7 +35,9 @@ export class CreateExpComponent implements OnInit {
       this.porfolioService.createExperience(this.experience).subscribe();
     }
     finally{
-      this.contextService.reloadCurrentRoute();
+      setTimeout(function(){
+        window.location.reload();
+      },3000);
     }
     
     //window.location.reload();

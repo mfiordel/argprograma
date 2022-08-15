@@ -35,7 +35,7 @@
       <!--Start bucle for-each element of experience-->
       <div class="card d-flex flex-wrap col-12 mt-2 mb-2 experience" *ngFor="let exp of experience">
         <!--Img of exp-->
-        <img [src]="exp.url_img" [class]="exp.style" class="card-img-top card-img img-logos" alt="...">
+        <img [src]="exp.url_img" [class]="exp.style" class="card-img-top card-img img-logos" [alt]="exp.name_school">
         <!--Edit button (admin logged required)-->
         <button type="button" *ngIf="showEditBtns==true && idExpObj==exp.id"
           (click)="showUrlImgExpInput = !showUrlImgExpInput" class="btn-dark icn-minibuttons mb-4" [@inOutAnimation]>
@@ -230,7 +230,7 @@
                           d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
                       </svg>
                     </button>
-                    <input type="submit" (click)="objectExp.description = exp.description"
+                    <input type="submit"
                       *ngIf="showEditBtns==true && showDescriptionExpInput==true && idExpObj==exp.id"
                       class="mt-2 rounded btn-success buttons" value="Guardar">
                   </div>
@@ -288,8 +288,8 @@
                           d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
                       </svg>
                     </button>
-                    <input type="submit" (click)="objectExp.initial_date = exp.initial_date"
-                      *ngIf="showEditBtns==true && showInitDateExpInput==true && idExpObj==exp.id"
+                    <input type="submit"
+                     *ngIf="showEditBtns==true && showInitDateExpInput==true && idExpObj==exp.id"
                       class="mt-2 rounded btn-success buttons" value="Guardar">
                   </div>
                   <div>
@@ -350,8 +350,7 @@
                           d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
                       </svg>
                     </button>
-                    <input type="submit" (click)="objectExp.end_date = exp.end_date"
-                      *ngIf="showEditBtns==true && showEndDateExpInput==true && idExpObj==exp.id"
+                    <input type="submit" *ngIf="showEditBtns==true && showEndDateExpInput==true && idExpObj==exp.id"
                       class="mt-2 rounded btn-success buttons" value="Guardar">
                   </div>
                   <div>
