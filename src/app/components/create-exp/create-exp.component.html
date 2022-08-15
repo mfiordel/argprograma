@@ -1,0 +1,45 @@
+<div class="card flex-wrap mt-2 mb-2 experience">
+    <form class="d-flex justify-content-start" #f="ngForm" (ngSubmit)="createExp()" novalidate>
+        <div class="">
+        </div>
+        <div class="card-body border-top border-4 border-dark">
+            <div class="form-outline mb-2 d-flex ">
+                <input type="text" id="name_school" class="form-control form-control-md w-25" name="name_school"
+                    placeholder="name_school" [(ngModel)]="name_school" required />
+                <label class="form-label" for="nameUser">Nombre Universidad/Institución</label>
+            </div>
+            <div class="form-outline mb-2 d-flex ">
+                <input type="description" id="description" class="form-control form-control-md w-25" name="description"
+                    placeholder="description" [(ngModel)]="description" required />
+                <label class="form-label" for="nameUser">Descripcion</label>
+            </div>
+            <div class="form-outline mb-2 d-flex ">
+                <input type="initial_date" id="initial_date" class="form-control form-control-md w-25"
+                    name="initial_date" placeholder="initial_date" [(ngModel)]="initial_date" required />
+                <label class="form-label" for="nameUser">Fecha de Inicio</label>
+            </div>
+            <div class="form-outline mb-2 d-flex ">
+                <input type="end_date" id="end_date" class="form-control form-control-md w-25" name="end_date"
+                    placeholder="end_date" [(ngModel)]="end_date" required />
+                <label class="form-label" for="nameUser">Fecha Final</label>
+            </div>
+            <div class="form-outline mb-2 d-flex ">
+                <input type="is_actually" id="is_actually" class="form-control form-control-md w-25" name="is_actually"
+                    placeholder="_actually" [(ngModel)]="is_actually" required />
+                <label class="form-label" for="nameUser">Actualmente</label>
+            </div>
+            <div class="form-outline mb-2 d-flex ">
+                <input type="url_img" id="url_img" class="form-control form-control-md w-25" name="url_img"
+                    placeholder="url_img" [(ngModel)]="url_img" required />
+                <label class="form-label" for="nameUser">Url de la imágen</label>
+            </div>
+            <div class="form-outline mb-2 d-flex ">
+                <input type="style" id="style" class="form-control form-control-md w-25" name="style"
+                    placeholder="style" [(ngModel)]="style" required />
+                <label class="form-label" for="nameUser">Estilo CSS para fondo de la imágen</label>
+            </div>
+            <input class="btn-dark w-25 mt-2 buttons col-12" type="submit" id="submit" value="Aplicar">
+            <button class="btn-dark w-25 mt-2 buttons col-12" (click)="discard()">Descartar</button>
+        </div>
+    </form>
+</div>

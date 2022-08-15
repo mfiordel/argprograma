@@ -18,87 +18,45 @@
 
 }
 #profile-card{
-    z-index: 950;
+    z-index: 9;
     margin: auto;
     max-width: 95vw;
+    padding-bottom: 100px;
 }
 
-.background-area{
-    max-width: 90vw;
-    height: 65vh;
-    position: absolute;
-    top: 10%;
-    z-index: 900;
-}
-.box-area{
-    max-width: 100vw;
-    position: absolute;
-    top:0;
-    left:0;
-    min-width: 80vw;
-    height: 100%;
-    overflow: hidden;
-}
-.box-area li{
-    position: absolute;
-    display: block;
-    list-style: none;
-    width: 25px;
-    height: 25px;
-    background: rgba(255, 255, 255, 0.2);
-    animation: animate 20s linear;
-    animation-iteration-count: infinite;
-    filter: opacity(0.5);
-    box-shadow: 2px 5px 5px black;
-}
-.box-area li:nth-child(1){
-    left: 86%;
-    width: 80px;
-    height: 80px;
-    animation-delay: 0s;
-}
-.box-area li:nth-child(2){
-    left: 12%;
-    width: 30px;
-    height: 30px;
-    animation-delay: 1.5s;
-    animation-duration: 10s;
-}
-.box-area li:nth-child(3){
-    left: 70%;
-    width: 100px;
-    height: 100px;
-    animation-delay: 5s;
-}
-.box-area li:nth-child(4){
-    left: 6%;
-    width: 140px;
-    height: 140px;
-    animation-delay: 0s;
-    animation-duration: 15s;
-}
-.box-area li:nth-child(5){
-    left: 65%;
-    width: 40px;
-    height: 40px;
-    animation-delay: 0s;
+#profile-banner {
+    filter: drop-shadow(5px 5px 14px #333335);
+   
 }
 
-@keyframes animate{
-    0%{
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    50%{
-        transform: translateY(600px) rotate(15deg);
-        opacity: 0;
-    }75%{
-        transform: translateY(1200px) rotate(30deg);
-        opacity: 0;
-    }
-    100%{
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-
+#profile-banner:hover {
+    transform: scale(1.02);
+    transition: cubic-bezier();
+    transition-duration: 3s;
+    
 }
+#profile-banner:not(:hover) {
+    transform: scale(1);
+    transition: cubic-bezier();
+    transition-duration: 2s;
+}
+
+#profile-banner-img {
+    position: relative;
+    left: 16vw!important;
+    flex-wrap: nowrap;
+    width: 100%;    
+}
+@media (max-width: 900px){
+    #profile-banner-img{
+        transform: scale(1.4);
+        margin-top: 3%;
+    }
+}
+@media (max-width: 600px){
+    #profile-banner-img{
+        display: none;
+    }
+}
+
+

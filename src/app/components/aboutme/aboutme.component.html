@@ -1,44 +1,31 @@
-<div class="card-body container">  
-    <div class="row">
-      <div class="col-12 ">
-        <div class="col-4">
-          <img class="card-img-top rounded-circle" id="profile-img" [src]="person.url_img" alt="Card image cap">
-        </div>
-        <div class="col-8 col-sm-12 col-md-12 flex-shrink-1">
-          <app-logo-card id="app-logo-card"></app-logo-card>
-        </div>
-      </div>  
-      <div class="col-10 pt-2">
-        <h1 class="card-title inline border-top border-4 border-dark col-12 pt-2">{{ person.name }} {{ person.lastname }}</h1>
-          <ul class="container-fluid border-top border-4 border-dark col-12 pt-2">
-            <li>
-              <p class="card-text">{{ person.about_me }}</p>
-              
-            </li>
-            <li>
-             <p class="card-text col-12"> {{ person.address }} </p> 
-            </li>
-            <li>
-              <p class="card-text">Número de contacto: {{ person.phone }}</p>
-            </li>
-            <!-- JSON 
-            <li>
-              <p class="card-text">{{ person.birthday }}</p>
-              
-            </li>
-            
-            <li>
-              <p class="card-text col-12"> {{ person.ubication}} </p> 
-             </li>
-             <li>
-               <p class="card-text">{{ person.position }}</p>
-             </li>
-            
-             -->
-          </ul>
+<div class="card-body container">
+  <div class="row">
+    <div class="col-12 ">
+      <!--Img src from db Person table-->
+      <div class="col-4 d-flex">
+        <img class="card-img-top rounded-circle" id="profile-img" [src]="person.url_img" alt="Card image cap">
       </div>
-      <div class="col-12 pt-2">
-        <button class="btn-dark w-25 ml-2 mt-2 buttons col-12">Cursos</button>
-        <button class="btn-dark w-25 ml-2 mt-2 buttons col-12">Títulos</button>
+      <div class="col-8 flex-shrink-1">
+        <!--Logo card component-->
+        <app-logo-card id="app-logo-card"></app-logo-card>
       </div>
     </div>
+    <div class="col-10 pt-2" id="profile-card">
+      <!--Data from db Person table-->
+      <h1 class="card-title inline border-top border-4 border-dark col-12 pt-2">{{ person.name }} {{ person.lastname }}
+      </h1>
+      <ul class="container-fluid border-top border-4 border-dark col-12 pt-2">
+        <li>
+          <p class="card-text">{{ person.about_me }}</p>
+        </li>
+        <li>
+          <p class="card-text col-12"> {{ person.address }} </p>
+        </li>
+        <li>
+          <p class="card-text">Número de contacto: {{ person.phone }}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-12 pt-2">
+    </div>
+  </div>

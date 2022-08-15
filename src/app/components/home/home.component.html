@@ -2,27 +2,25 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 </style>
 <div class="container-fluid" id="main">
-
-    <!--Navbar Component with Banner-->
+    <!--Navbar = Header Component with Banner-->
     <app-header id="navbar"></app-header>
-
-    <!--Animation Component-->
-    <div class="background-area container-fluid">
-        <ul class="box-area">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+    <!--Banner IMG-->
+    <div class=" col-8 d-flex" id="profile-banner" >
+        <img src="../../../assets/DSC_1656b.jpg" class="h-25 "  id="profile-banner-img" alt="...">
     </div>
     <!--Profile Card-->
-    <div class="card container-fluid rounded col-12 col-sm-12 col-md-11 col-lg-11 d-flex flex-wrap justify-content-center align-center"
+    <div class="card p-2 rounded col-12 col-sm-11 col-md-11 col-lg-12 d-flex flex-wrap justify-content-center align-center"
         id="profile-card">
-        <!---->
-        <app-aboutme></app-aboutme>
-        <app-experience></app-experience>
-        <app-skills></app-skills>
+        <!--AboutMe Component-->
+        <app-aboutme id="aboutme-component"></app-aboutme>
+        <!--Experience Component-->
+        <app-experience id="experience-component"></app-experience>
+        <!--Skills Component-->
+        <app-skills id="skill-component"></app-skills>
+        <!--Proyects Component-->
+        <app-proyects id="proyects-component"></app-proyects>
     </div>
+    
 </div>
+<!--Footer Component-->
+<app-footer class="d-block bg-dark"></app-footer>

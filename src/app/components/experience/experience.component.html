@@ -1,44 +1,382 @@
-<div class="card-body container">  
-    <div class="pt-2 row">
-      <div class="col-12">
-        <h4 class="card-title inline border-top border-4 border-dark pt-2 mt-4 col-12 col-sm-12 col-md-12 col-lg-12">Universidades - Instituciones 
-          <button class="btn-dark icn-buttons" id="btn-experience-modal" (click)="show=!show"> 
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layer-backward" viewBox="0 0 16 16">
-              <path d="M8.354 15.854a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708l1-1a.5.5 0 0 1 .708 0l.646.647V4H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9v7.793l.646-.647a.5.5 0 0 1 .708 0l1 1a.5.5 0 0 1 0 .708l-3 3z"/>
-              <path d="M1 9a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4.5a.5.5 0 0 1 0 1H1v2h4.5a.5.5 0 0 1 0 1H1zm9.5 0a.5.5 0 0 1 0-1H15V6h-4.5a.5.5 0 0 1 0-1H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4.5z"/>
+<div class="card-body container">
+  <div class="pt-2 row">
+    <div class="col-12">
+      <!--Title-->
+      <h4 class="card-title inline border-top border-4 border-dark pt-2 mt-4 col-12 col-sm-12 col-md-12 col-lg-12">
+        Universidades - Instituciones
+        <!--Button for show the list-->
+        <button class="btn-dark icn-buttons" id="btn-experience-modal" (click)="show=!show">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-layer-backward" viewBox="0 0 16 16">
+            <path
+              d="M8.354 15.854a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708l1-1a.5.5 0 0 1 .708 0l.646.647V4H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9v7.793l.646-.647a.5.5 0 0 1 .708 0l1 1a.5.5 0 0 1 0 .708l-3 3z" />
+            <path
+              d="M1 9a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4.5a.5.5 0 0 1 0 1H1v2h4.5a.5.5 0 0 1 0 1H1zm9.5 0a.5.5 0 0 1 0-1H15V6h-4.5a.5.5 0 0 1 0-1H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4.5z" />
+          </svg>
+        </button>
+      </h4>
+    </div>
+    <!--Experience list-->
+    <div class="col-12 " *ngIf="show" [@inOutAnimation]>
+      <!--Conditional Admin Logged to show 'create exp button' -->
+      <div class="d-flex justify-content-start" *ngIf="edit">
+        <!--on click it shows the Create-Exp Component form -->
+        <button class="btn-dark icn-buttons" (click)="createExp=!createExp">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="bi bi-bookmark-plus-fill" viewBox="0 0 16 18">
+            <path fill-rule="evenodd"
+              d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z" />
+          </svg>
+        </button>
+        <h6 class="mt-2 mb-2 h6-exp" (click)="createExp=!createExp">Agregar nueva experiencia</h6>
+      </div>
+      <!--Create-Exp Component-->
+      <app-create-exp *ngIf="createExp" [@inOutAnimation]></app-create-exp>
+      <!--Start bucle for-each element of experience-->
+      <div class="card d-flex flex-wrap col-12 mt-2 mb-2 experience" *ngFor="let exp of experience">
+        <!--Img of exp-->
+        <img [src]="exp.url_img" [class]="exp.style" class="card-img-top card-img img-logos" alt="...">
+        <!--Edit button (admin logged required)-->
+        <button type="button" *ngIf="showEditBtns==true && idExpObj==exp.id"
+          (click)="showUrlImgExpInput = !showUrlImgExpInput" class="btn-dark icn-minibuttons mb-4" [@inOutAnimation]>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-pencil-fill"
+            viewBox="0 0 16 18">
+            <path
+              d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+          </svg>
+        </button>
+        <!--Form to edit url img & style img start -->
+        <form #g="ngForm" (ngSubmit)="editUrlImgExp()" novalidate>
+          <div class="form-outline mb-4" *ngIf="showUrlImgExpInput == true && idExpObj==exp.id && showEditBtns==true">
+            <!--Input for url -->
+            <input type="text" id="url_img" class="form-control form-control-sm" name="url_img"
+              placeholder="Url actual: {{exp.url_img}}" [(ngModel)]="url_img" required />
+            <label class="form-label" for="url_img">Url de la imágen</label>
+            <!--Input for style -->
+            <input type="text" id="style" class="form-control form-control-sm" name="style"
+              placeholder="Style actual: {{exp.style}}" [(ngModel)]="style" required />
+            <label class="form-label" for="style">Style class</label>
+          </div>
+          <!--Buttons of form -->
+          <div>
+            <!--Submit / Save -->
+            <div>
+              <button disabled *ngIf="showEditBtns==true && showUrlImgExpInput==true && idExpObj==exp.id"
+                (click)="showUrlImgExpInput = !showUrlImgExpInput" class="btn-dark icn-minibuttons" [@inOutAnimation]>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-file-check-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                </svg>
+              </button>
+              <input type="submit" *ngIf="showEditBtns==true && showUrlImgExpInput==true && idExpObj==exp.id"
+                class="mt-2 rounded btn-success buttons " value="Guardar">
+            </div>
+            <!--Discard -->
+            <div>
+              <button type="button" *ngIf="showEditBtns==true && showUrlImgExpInput==true && idExpObj==exp.id"
+                (click)="showUrlImgExpInput = !showUrlImgExpInput" class="btn-dark icn-minibuttons" [@inOutAnimation]>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <!--Form to edit url img & style end -->
+        </form>
+        <!--Button icon of Admin. Conditionaly shows all forms -->
+        <div class="d-flex justify-content-end icn-contain">
+          <button class="btn-dark icn-buttons icn-edit" *ngIf="edit"
+            (click)="idExpObj=exp.id; showEditBtns=!showEditBtns; showNameExpInput = false; showDescriptionExpInput = false; showInitDateExpInput = false; showEndDateExpInput = false; objectExp = exp; showUrlImgExpInput = false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill"
+              viewBox="0 0 16 16">
+              <path
+                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
             </svg>
           </button>
-        </h4> 
+          <!--On button click it Send id of this exp of experience to the component.ts variable-->
+          <div *ngIf="!idExp && edit && showEditBtns==true && idExpObj==exp.id" [@inOutAnimation]>
+            <button class="btn-dark icn-buttons" (click)="idExp=exp.id">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-node-minus-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M16 8a5 5 0 0 1-9.975.5H4A1.5 1.5 0 0 1 2.5 10h-1A1.5 1.5 0 0 1 0 8.5v-1A1.5 1.5 0 0 1 1.5 6h1A1.5 1.5 0 0 1 4 7.5h2.025A5 5 0 0 1 16 8zm-2 0a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5A.5.5 0 0 0 14 8z" />
+              </svg>
+            </button>
+          </div>
+          <!--Previous conditional to show Request for Delete-->
+          <div class="col-12 d-flex flex-wrap row" *ngIf="idExp==exp.id && edit && showEditBtns==true ">
+            <div class="col-12">
+              <h6 class="warning-delete d-flex border-top border-4 border-dark pt-2 mt-4 ">Vas a Eliminar
+                permanentemente este objeto. ¿Deseas continuar?</h6>
+            </div>
+            <!--Request for Delete-->
+            <div class="col-12" [@inOutAnimation]>
+              <div
+                class="bg-success border-top border-4 border-dark rounded container d-flex col-6  mb-2 justify-content-around pt-2 pb-2">
+                <span type="button" (click)="deleteExp()" class="mt-2 text-light rounded">Eliminar</span>
+                <button disabled class="btn-dark icn-buttons d-block" (click)="deleteExp()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-file-check-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <!--Cancel-->
+            <div class="col-12" [@inOutAnimation]>
+              <div
+                class="bg-danger border-top border-4 border-dark rounded container d-flex col-6 mb-2 justify-content-around pt-2 pb-2">
+                <span type="button" (click)="idExp=false" class="mt-2 text-light rounded">Cancelar</span>
+                <button type="button" (click)="idExp=false" class="btn-dark icn-buttons d-block">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Experience data-->
+        <div class="card-body border-top border-4 border-dark card-exp">
+          <!--Exp Name-->
+          <!--Form of name_school Start-->
+          <div>
+            <form #g="ngForm" (ngSubmit)="editNameExp()" novalidate>
+              <div class="d-flex flex-wrap justify-content-start">
+                <ng-template #currentState>
+                  <h5 class="card-title mt-2 mb-2 pb-2 border-bottom border-3 border-dark">{{ exp.name_school}}</h5>
+                </ng-template>
+                <div class="form-outline mb-4"
+                  *ngIf="showNameExpInput == true && idExpObj==exp.id && showEditBtns==true, else currentState">
+                  <input type="text" id="name_school" class="form-control form-control-sm" name="name_school"
+                    placeholder="Estado actual: {{exp.name_school}}" [(ngModel)]="name_school" required />
+                  <label class="form-label" for="nameUser">Nombre Universidad/Institución</label>
+                </div>
+                <div>
+                  <button type="button" *ngIf="showEditBtns==true && idExpObj==exp.id"
+                    (click)="showNameExpInput = !showNameExpInput" class="btn-dark icn-minibuttons mb-4"
+                    [@inOutAnimation]>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                      class="bi bi-pencil-fill" viewBox="0 0 16 18">
+                      <path
+                        d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                    </svg>
+                  </button>
+                  <div>
+                    <button disabled *ngIf="showEditBtns==true && showNameExpInput==true && idExpObj==exp.id"
+                      (click)="showNameExpInput = !showNameExpInput" class="btn-dark icn-minibuttons" [@inOutAnimation]>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-check-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                      </svg>
+                    </button>
+                    <!--Submit form = put request-->
+                    <input type="submit" *ngIf="showEditBtns==true && showNameExpInput==true && idExpObj==exp.id"
+                      class="mt-2 rounded btn-success buttons" value="Guardar">
+                  </div>
+                  <div>
+                    <button type="button" *ngIf="showEditBtns==true && showNameExpInput==true && idExpObj==exp.id"
+                      (click)="showNameExpInput = !showNameExpInput" class="btn-dark icn-minibuttons" [@inOutAnimation]>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!--Form of name_school End-->
+          </div>
+          <!--Exp Description-->
+          <!--Form of description Exp Start-->
+          <div>
+            <form #i="ngForm" (ngSubmit)="editDescExp()" novalidate>
+              <div class="d-flex flex-wrap justify-content-start">
+                <ng-template #currentDState>
+                  <h6 class="card-title mt-2">{{ exp.description }}</h6>
+                </ng-template>
+                <div class="form-outline mt-4"
+                  *ngIf="showDescriptionExpInput == true && idExpObj==exp.id && showEditBtns==true, else currentDState">
+                  <input type="text" id="description" class="form-control form-control-sm" name="description"
+                    placeholder="Estado actual: {{exp.description}}" [(ngModel)]="description" required />
+                  <label class="form-label" for="description">Descripcion</label>
+                </div>
+                <div>
+                  <button type="button" *ngIf="showEditBtns==true && idExpObj==exp.id"
+                    (click)="showDescriptionExpInput = !showDescriptionExpInput" class="btn-dark icn-minibuttons mb-4"
+                    [@inOutAnimation]>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                      class="bi bi-pencil-fill" viewBox="0 0 16 18">
+                      <path
+                        d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                    </svg>
+                  </button>
+                  <div>
+                    <button type="button"
+                      *ngIf="showEditBtns==true && showDescriptionExpInput==true && idExpObj==exp.id" disabled
+                      class="btn-dark icn-minibuttons" [@inOutAnimation]>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-check-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                      </svg>
+                    </button>
+                    <input type="submit" (click)="objectExp.description = exp.description"
+                      *ngIf="showEditBtns==true && showDescriptionExpInput==true && idExpObj==exp.id"
+                      class="mt-2 rounded btn-success buttons" value="Guardar">
+                  </div>
+                  <div>
+                    <button *ngIf="showEditBtns==true && showDescriptionExpInput==true && idExpObj==exp.id"
+                      (click)="showDescriptionExpInput = !showDescriptionExpInput" class="btn-dark icn-minibuttons mb-4"
+                      [@inOutAnimation]>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
+                      </svg>
+                    </button>
+                    <!-- <button *ngIf="showEditBtns==true && showDescriptionExpInput==true && idExpObj==exp.id"
+                      class="mt-2 rounded btn-danger buttons">Cancelar
+                      </button> -->
+                  </div>
+                </div>
+              </div>
+              <!--Form of description Exp End-->
+            </form>
+          </div>
+          <!--Exp InitialDate-->
+          <!--Form of initial_date Exp Start-->
+          <div>
+            <form #k="ngForm" (ngSubmit)="editInitDateExp()" novalidate>
+              <div class="d-flex flex-wrap justify-content-start">
+                <ng-template #currentIState>
+                  <p class="blockquote-footer mt-2">Desde: {{exp.initial_date}} </p>
+                </ng-template>
+                <div class="form-outline mt-4"
+                  *ngIf="showInitDateExpInput == true && idExpObj==exp.id && showEditBtns==true, else currentIState">
+                  <input type="text" id="initial_date" class="form-control form-control-sm" name="initial_date"
+                    placeholder="Estado actual: {{exp.initial_date}}" [(ngModel)]="initial_date" required />
+                  <label class="form-label" for="initial_date">Fecha de Inicio</label>
+                </div>
+                <div>
+                  <button type="button" *ngIf="showEditBtns==true && idExpObj==exp.id"
+                    (click)="showInitDateExpInput = !showInitDateExpInput" class="btn-dark icn-minibuttons mb-4"
+                    [@inOutAnimation]>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                      class="bi bi-pencil-fill" viewBox="0 0 16 18">
+                      <path
+                        d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                    </svg>
+                  </button>
+                  <div>
+                    <button disabled type="button"
+                      *ngIf="showEditBtns==true && showInitDateExpInput==true && idExpObj==exp.id"
+                      (click)="showInitDateExpInput = !showInitDateExpInput" class="btn-dark icn-minibuttons"
+                      [@inOutAnimation]>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-check-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                      </svg>
+                    </button>
+                    <input type="submit" (click)="objectExp.initial_date = exp.initial_date"
+                      *ngIf="showEditBtns==true && showInitDateExpInput==true && idExpObj==exp.id"
+                      class="mt-2 rounded btn-success buttons" value="Guardar">
+                  </div>
+                  <div>
+                    <button type="button" *ngIf="showEditBtns==true && showInitDateExpInput==true && idExpObj==exp.id"
+                      (click)="showInitDateExpInput = !showInitDateExpInput" class="btn-dark icn-minibuttons mb-4"
+                      [@inOutAnimation]>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
+                      </svg>
+                    </button>
+                    <!--  <button *ngIf="showEditBtns==true && showInitDateExpInput==true && idExpObj==exp.id"
+                        class="mt-2 rounded btn-danger buttons">Cancelar
+                      </button> -->
+                  </div>
+                </div>
+              </div>
+              <!--Form of initial_date Exp Start-->
+            </form>
+          </div>
+          <!--Exp EndDate-->
+          <!--Form of end_date Exp Start-->
+          <div>
+            <form #k="ngForm" (ngSubmit)="editEndDateExp()" novalidate>
+              <div class="d-flex flex-wrap justify-content-start">
+                <ng-template #currentEState>
+                  <p class="blockquote-footer mt-2" *ngIf="exp.end_date != null ; else currently">Hasta:
+                    {{exp.end_date}} </p>
+                </ng-template>
+                <ng-template #currently>
+                  <p class="blockquote-footer mt-2">Actualmente</p>
+                </ng-template>
+                <div class="form-outline mt-4"
+                  *ngIf="showEndDateExpInput == true && idExpObj==exp.id && showEditBtns==true; else currentEState">
+                  <input type="text" id="end_date" class="form-control form-control-sm" name="end_date"
+                    placeholder="Estado actual: {{exp.end_date}}" [(ngModel)]="end_date" required />
+                  <label class="form-label" for="end_date">Fecha Final</label>
+                </div>
+                <div>
+                  <button type="button" *ngIf="showEditBtns==true && idExpObj==exp.id"
+                    (click)="showEndDateExpInput = !showEndDateExpInput" class="btn-dark icn-minibuttons mb-4"
+                    [@inOutAnimation]>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                      class="bi bi-pencil-fill" viewBox="0 0 16 18">
+                      <path
+                        d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                    </svg>
+                  </button>
+                  <div>
+                    <button disabled type="button"
+                      *ngIf="showEditBtns==true && showEndDateExpInput==true && idExpObj==exp.id"
+                      (click)="showEndDateExpInput = !showEndDateExpInput" class="btn-dark icn-minibuttons"
+                      [@inOutAnimation]>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-check-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                      </svg>
+                    </button>
+                    <input type="submit" (click)="objectExp.end_date = exp.end_date"
+                      *ngIf="showEditBtns==true && showEndDateExpInput==true && idExpObj==exp.id"
+                      class="mt-2 rounded btn-success buttons" value="Guardar">
+                  </div>
+                  <div>
+                    <button type="button" *ngIf="showEditBtns==true && showEndDateExpInput==true && idExpObj==exp.id"
+                      (click)="showEndDateExpInput = !showEndDateExpInput" class="btn-dark icn-minibuttons mb-4"
+                      [@inOutAnimation]>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
+                      </svg>
+                    </button>
+                    <!-- <button *ngIf="showEditBtns==true && showEndDateExpInput==true && idExpObj==exp.id"
+                        class="mt-2 rounded btn-danger buttons">Cancelar
+                      </button> -->
+                  </div>
+                </div>
+              </div>
+              <!--Form of end_date Exp End-->
+            </form>
+            <!-- <button class="btn-dark w-25 mt-2 buttons col-12">Cursos</button>
+            <button class="btn-dark w-25 mt-2 buttons col-12">Títulos</button> -->
+          </div>
+        </div>
       </div>
-      <!--USAR EL ngIF para futuro logeo-->
-      <div class="col-12 " *ngIf="show" [@inOutAnimation]>
-        <div class="card d-flex flex-wrap mt-2 mb-2 experience" *ngFor="let exp of experience" >
-          <img [src]="exp.url_img" [class]="exp.style" class="card-img-top d-block card-img img-logos" alt="...">
-          <div class="card-body border-top border-4 border-dark">
-            <h5 class="card-title mt-2">{{ exp.name_school}}</h5>
-            <h6 class="card-title mt-2">{{ exp.description }}</h6>
-            <p class="blockquote-footer mt-2">Desde: {{exp.initial_date}} </p>
-            <p class="blockquote-footer mt-2" *ngIf="exp.end_date != null; else currently">Hasta: {{exp.end_date}} </p>
-            <ng-template #currently><p class="blockquote-footer mt-2">Actualmente</p></ng-template>
-
-            <button class="btn-dark w-25 mt-2 buttons col-12">Cursos</button>
-            <button class="btn-dark w-25 mt-2 buttons col-12">Títulos</button>
-          </div>
-        </div>
-        <!-- For JSON Local API
-        <div class="card position-relative mt-2 mb-2" *ngFor="let education of educationList">
-          <div class="w-50 logos border-top border-4 border-dark"><img [src]="education.img.url" [class]="education.img.class" class="card-img-top d-block card-img img-logos" alt="..."></div>
-          <div class="card-body border-top border-4 border-dark">
-            
-            <h5 class="card-title mt-2">{{ education.school }}</h5>
-            <h6 class="card-title mt-2">{{ education.title }}</h6>
-            <p class="blockquote-footer mt-2">Desde: {{ education.start }}</p>
-            <p class="blockquote-footer mt-2">Hasta: {{ education.end }}</p>
-            <button class="btn-dark w-25 buttons col-12">Cursos</button>
-            <button class="btn-dark w-25 buttons col-12">Títulos</button>
-          
-          </div>
-        </div>
-          -->
     </div>
   </div>
+</div>

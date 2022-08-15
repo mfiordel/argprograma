@@ -13,10 +13,11 @@
     margin-top: 2em;
     margin-bottom: 2em;
     margin-left: 2em;
+    margin-right: auto;
 }
 
 .buttons{
-    border: solid 1px rgb(38, 43, 114);
+    border: transparent;
     margin: 5px;
     border-radius: 20px;
     min-width: 150px!important;
@@ -34,23 +35,54 @@
     width: 50px!important;
     border: solid 1px rgb(49, 49, 53);
     color: white;
+    height: 30px;
     filter: drop-shadow(1px 1px 5px #333333);
     font-variant: bold;
+}
+.icn-minibuttons{
+            width: 28px;
+			height: 28px;
+			border-radius: 15px;
+			font-size: 15px;
+            margin-left: 10px;
+            margin-right: auto;
+            margin-top: 5px;
+			text-align: center;
+}
+.icn-edit {
+    margin: 5px;
+    position: absolute;
+    top: 0px;
+}
+.card-exp{
+    padding-left: 30px;
+    padding-right: 30px;
 }
 #btn-experience-modal {
     position: relative;
     width: 90vw;
-
 }
+.h6-exp{
+    margin-left: 10px;
+    margin-right: auto;
+}
+.warning-delete{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 /* #experience{
     max-width: 95vw;
     margin:auto;
     padding-left: 10%;
     padding-right: 10%;
 }
-#experience-body{
-}
 */
+.experience{
+    filter: drop-shadow(3px 3px 14px #333335);
+}
+
 @media (min-width: 480px) {
     .experience{
         margin-right: 2rem!important;

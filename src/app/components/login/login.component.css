@@ -1,0 +1,20 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+.button-login{
+    border: solid 1px rgb(38, 43, 114);
+    margin: 5px;
+    border-radius: 20px;
+    min-width: 200px!important;
+    max-width: 90vw!important;
+    border: solid 1px rgb(49, 49, 53);
+    background-color: #333335;
+    color: white;
+    filter: drop-shadow(1px 1px 5px #333333);
+    font-variant: bold;
+    font-weight: 500;
+}

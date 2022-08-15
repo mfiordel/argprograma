@@ -1,23 +1,35 @@
+<!--Navbar-->
 <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark" id="navbar">
-      <img class=" navbar-brand position-relative bg-dark rounded" id="logo" src="../../../assets/aplogo.png" alt="Card image cap">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Porfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Contacto</a>
-        </li>
-        <button type="button" class="btn btn-outline-light" (click)="login()">Login</button>
-      </ul>
-    </div>
+  <!--Arg.Programa Logo-->
+  <a type="button" class="" (click)="home()">
+    <img class=" navbar-brand position-relative bg-dark rounded" id="logo" src="../../../assets/aplogo.png"
+      alt="Card image cap">
+  </a>
+  <!--Responsive burguer buttom menu-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" href="collapse-navbar"
+    data-target="#collapse-navbar" aria-controls="collapse-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!--List of links navbar-->
+  <div class="collapse navbar-collapse justify-content-center" id="collapse-navbar">
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a class="nav-link " href="#aboutme-component">Sobre Mi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#experience-component">Experiencia</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#skill-component">Skills</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#proyects-component">Proyectos</a>
+      </li>
+      <!--Access to Login Component-->
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn-log" (click)="login()" *ngIf="!isLogged">Login</button>
+        <button type="button" class="btn-log" (click)="logOut()" *ngIf="isLogged">Logout</button>
+      </div>
+    </ul>
+  </div>
 </nav>
-<div class="container-fluid col-8" id="profile-banner" >
-  <img src="../../../assets/DSC_1656b.jpg" class="h-25 d-block" id="profile-banner-img" alt="...">
-</div> 

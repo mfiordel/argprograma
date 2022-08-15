@@ -1,1 +1,59 @@
-<p>proyects works!</p>
+<div class="card-body container mb-4">
+  <div class="pt-2 row align-items-start d-flex flex-wrap">
+    <!--Title of proyect component-->
+    <div class="col-12">
+      <h4 class="card-title inline border-top border-4 border-dark pt-2 mt-4 col-12 col-sm-12 col-md-12 col-lg-12">
+        Proyectos
+        <!--On Click show list of proyects-->
+        <button class="btn-dark icn-buttons" id="btn-experience-modal" (click)="show=!show">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-layer-backward" viewBox="0 0 16 16">
+            <path
+              d="M8.354 15.854a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708l1-1a.5.5 0 0 1 .708 0l.646.647V4H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9v7.793l.646-.647a.5.5 0 0 1 .708 0l1 1a.5.5 0 0 1 0 .708l-3 3z" />
+            <path
+              d="M1 9a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4.5a.5.5 0 0 1 0 1H1v2h4.5a.5.5 0 0 1 0 1H1zm9.5 0a.5.5 0 0 1 0-1H15V6h-4.5a.5.5 0 0 1 0-1H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4.5z" />
+          </svg>
+        </button>
+      </h4>
+      <!--Description of component content-->
+      <h6 class="mt-2 pb-2 border-bottom border-2
+           border-dark" *ngIf="show" [@inOutAnimation]>
+        Lista de la cantidad total de proyectos de desarrollo web realizados desde mis
+        comienzos (4 desde Junio 2021)
+      </h6>
+    </div>
+    <div class="col-12 d-flex flex-wrap justify-content-around flex-column skills" *ngIf="show" [@inOutAnimation]>
+      <div class="card position-relative mt-2 mb-2" *ngFor="let proyect of proyectList">
+        <h6 class="border-bottom border-3 border-dark d-flex card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-file-code-fill" viewBox="0 0 16 16">
+            <path
+              d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6.646 5.646a.5.5 0 1 1 .708.708L5.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zm2.708 0 2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 1 1 .708-.708z" />
+          </svg>
+          {{proyect.type}}
+        </h6>
+        <div class="d-flex min-width justify-content-around flex-wrap">
+        </div>
+        <div class="card-body border-top border-4 border-dark">
+          <h5 class="card-title mt-2 mb-2 pb-2 border-bottom border-3 border-dark ">{{proyect.name}}</h5>
+          <h6 class="card-title mt-2 ">{{proyect.course}}</h6>
+          <p class="">Duración : <small class="text-muted">{{proyect.duration}}</small></p>
+          <!--Possible {{skills.length}}-->
+          <!--Possible ng*For="skill of skills"-->
+          <div *ngFor="let tool of proyect.tools">
+            <p class="blockquote-footer mt-2">{{tool.name}}: {{tool.description}}  
+          </div>
+          
+          <!--{{skill.name}}-->
+          <div *ngFor="let repo of proyect.repository">
+            <a class="d-flex flex-wrap mt-4 text-decoration-none text-dark justify-content-start" target="_blank"
+              [href]="repo.url">
+              <img src="../../../assets/GitHub-Mark-32px.png" class="mt-2">
+              <span class="d-flex mt-2">{{repo.name}}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

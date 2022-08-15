@@ -13,6 +13,14 @@ import { ProyectsComponent } from './components/proyects/proyects.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component'
 import { FormsModule } from '@angular/forms';
+import { interceptorProvider } from './services/interceptor-service';
+import { CreateExpComponent } from './components/create-exp/create-exp.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { FooterComponent } from './components/footer/footer.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SpinnerModule } from './components/spinner/spinner.module';
+import { SpinnerInterceptor } from './services/spinner.interceptor';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -24,16 +32,20 @@ import { FormsModule } from '@angular/forms';
     SkillsComponent,
     ProyectsComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CreateExpComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SpinnerModule,
+    NgCircleProgressModule.forRoot({})
   ],
-  providers: [],
+  providers: [interceptorProvider, {provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

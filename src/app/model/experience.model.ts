@@ -1,20 +1,20 @@
-export class experience{
+export class Experience{
     id?: number;
     name_school: String;
-    description: String;
     is_actually: boolean;
-    url_img: String;
     initial_date: Date;
     end_date: Date;
-    person_id: number;
-
-    constructor(name_school: String, description: String, is_actually: boolean, url_img: String, initial_date: Date, end_date: Date, person_id: number){
+    description: String;
+    url_img: String;
+    style: String;
+    
+    constructor(name_school: String, is_actually: boolean, initial_date: Date, end_date: Date, description: String,  url_img: String, style: String){
         this.name_school = name_school;
-        this.description = description;
-        this.is_actually = is_actually;
-        this.url_img = url_img;
         this.initial_date = initial_date;
         this.end_date = end_date;
-        this.person_id = person_id;
+        this.is_actually = is_actually;
+        this.description = description;
+        this.url_img = url_img;
+        this.style = style;
     }
 }

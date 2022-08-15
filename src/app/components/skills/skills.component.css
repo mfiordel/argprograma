@@ -2,25 +2,42 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
 }
-.buttons{
+
+.buttons {
     border: solid 1px rgb(38, 43, 114);
     margin: 5px;
     border-radius: 20px;
-    min-width: 150px!important;
-    max-width: 90vw!important;
+    min-width: 150px !important;
+    max-width: 90vw !important;
     border: solid 1px rgb(49, 49, 53);
     color: white;
     filter: drop-shadow(1px 1px 5px #333333);
     font-variant: bold;
 }
 
+.skills {
+    filter: drop-shadow(3px 3px 14px #333335);
+}
+
 .icn-buttons {
     border: solid 1px rgb(38, 43, 114);
     margin: 5px;
     border-radius: 20px;
-    width: 50px!important;
+    width: 50px !important;
     border: solid 1px rgb(49, 49, 53);
     color: white;
     filter: drop-shadow(1px 1px 5px #333333);
     font-variant: bold;
+}
+
+#btn-experience-modal {
+    position: sticky;
+}
+
+@media (max-width: 480px) {
+   circle-progress{
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+   }
 }

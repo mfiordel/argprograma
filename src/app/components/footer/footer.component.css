@@ -1,0 +1,23 @@
+#logo-footer {
+    width: 5em;
+}
+#logo-github{
+    width: 18px;
+    height: 18px;
+    position: relative;
+    bottom: 16px;
+    left: 16px;
+
+}
+#footer{
+    width: 99%;
+    height: 20%;
+    display: flex;
+    flex-wrap: wrap;
+}
+@media (max-width: 480px) {
+    #footer{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

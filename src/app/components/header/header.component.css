@@ -13,33 +13,19 @@
     position: absolute;
 }
 
-#profile-banner {
-    filter: drop-shadow(5px 5px 14px #333335);
+.btn-log{
+    border: none;
+    margin: 5px;
+    margin-left: 35px;
+    border-radius: 20px;
+    min-width: 100px!important;
+    max-width: 90vw!important;
+    color: #333333;
+    filter: drop-shadow(1px 1px 5px white);
+    font-weight: bold;  
 }
-
-#profile-banner:hover {
-    transform: scale(1.02);
-    transition: cubic-bezier();
-    transition-duration: 3s;
-}
-#profile-banner:not(:hover) {
-    transform: scale(1);
-    transition: cubic-bezier();
-    transition-duration: 2s;
-}
-
-#profile-banner-img {
-    position: sticky;
-    flex-wrap: nowrap;
-    width: 100%;    
-}
-
-@media (max-width: 480px) {
-    #profile-banner {
-        position: relative;
-        width: 80vw;
-        height: auto;
-        filter: drop-shadow(5px 5px 14px #333335);
-        transition: 2s;
-    }
+.nav-link {
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
 }

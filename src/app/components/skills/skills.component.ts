@@ -37,4 +37,5 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void {
   }
   show:boolean = false;
+  
 }

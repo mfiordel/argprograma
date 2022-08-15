@@ -15,7 +15,6 @@ person: person = new person("","","","","","");
 
   ngOnInit(): void {
     this.data.getData().subscribe(data => {
-      console.log(data);
       this.person = data;
     })
   }

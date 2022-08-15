@@ -1,46 +1,108 @@
 {
-    "name": "Micael Fiordelmondo _",
-    "bannerImage": "",
-    "profileImage": "../../../assets/DSC_1648.jpg",
-    "position" : "FreeLance",
-    "ubication" : "Mendoza, Argentina",
-    "about" : "Licenciado en Actuación, Diseñador Gráfico y Desarrollador Front End",
-    "education" : [{
-        "school":"Universidad Nacional de las Artes",
-        "title":"Licenciado en Actuación",
-        "start":"2014",
-        "end":"2021",
-        "img":{
-            "url":"../../../assets/logoquienessomos2.png",
-            "class":"bg-light"
+    "proyect": [
+        {
+            "name": "Porfolio SPA Java & Angular",
+            "course": "#YoProgamo (Argentina Programa)",
+            "duration": "7 Meses",
+            "tools": [
+                {
+                    "name": "Angular",
+                    "description": "Typescript"
+                },
+                {
+                    "name": "Java",
+                    "description": "JWT y Springboot"
+                },
+                {
+                    "name": "MySQL",
+                    "description": "Workbench"
+                }
+            ],
+            "type": "FullStack SPA",
+            "repository": [
+                {
+                    "name": "GitHub BackEnd Repository",
+                    "url": "https://github.com/mfiordel/argpjava"
+                },
+                {
+                    "name": "GitHub FrontEnd Repository",
+                    "url": "https://github.com/mfiordel/argprograma"
+                }
+            ]
+        },
+        {
+            "name": "React SPA E-Commerce",
+            "course": "Curso de React js (Coderhouse)",
+            "duration": "3 Meses",
+            "tools": [
+                {
+                    "name": "React Js",
+                    "description": ""
+                },
+                {
+                    "name": "JSX",
+                    "description": "Sintaxis React"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "description": "Estilos"
+                },
+                {
+                    "name": "Firebase",
+                    "description": "Auths & Firestore"
+                }
+            ],
+            "type": "React SPA",
+            "repository": [
+                {
+                    "name": "GitHub Repository",
+                    "url": "https://github.com/mfiordel/ECommerce-Fiordelmondo"
+                }
+            ]
+        },
+        {
+            "name": "Javascript Application",
+            "course": "Curso de Javascript (Coderhouse) ",
+            "duration": "2 Meses (Primera experiencia javascript)",
+            "tools": [
+                {
+                    "name": "Javascript",
+                    "description": "JS Vanilla & jQuery"
+                },
+                {
+                    "name": "Bootstrap",
+                    "description": "Estilos"
+                }
+            ],
+            "type": "Javascript",
+            "repository": [
+                {
+                    "name": "GitHub Repository",
+                    "url": "https://github.com/mfiordel/Primera-experiencia-JavaScript-jQuery"
+                }
+            ]
+        },
+        {
+            "name": "Static WebSite",
+            "course": "Curso de Desarrollo Web (Coderhouse)",
+            "duration": "2 Meses (Primera experiencia HTML & CSS)",
+            "tools": [
+                {
+                    "name": "HTML5",
+                    "description": "CSS3"
+                },
+                {
+                    "name": "Bootstrap",
+                    "description": "Estilos"
+                }
+            ],
+            "type": "HTML5 & CSS3",
+            "repository": [
+                {
+                    "name": "GitHub Repository",
+                    "url": "https://github.com/mfiordel/Primera-experiencia-HTML5-CSS3"
+                }
+            ]
         }
-    },{
-        "school":"Coderhouse",
-        "title":"Desarrollador Front End React",
-        "start":"2021",
-        "end":"2021",
-        "img":{
-            "url":"../../../assets/logocoderhouse.jpg",
-            "class":"bg-dark"
-        }
-    },{
-        "school":"Argentina Programa",
-        "title":"#SéProgramar, Fundamentos de la programación",
-        "start":"2021",
-        "end":"2021",
-        "img":{
-            "url":"../../../assets/APLogo-20-20.png",
-            "class":"bg-dark"
-        }
-    },
-    {
-        "school":"Argentina Programa",
-        "title":"#YoProgramo, FullStack Angular & Java",
-        "start":"2022",
-        "end":"En curso",
-        "img": {
-            "url":"../../../assets/APLogo-20-20.png",
-            "class":"bg-dark"
-        }
-    }]
+    ]
 }
